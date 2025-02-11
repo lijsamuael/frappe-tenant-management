@@ -1,0 +1,137 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:CONTRACT-{####}",
+ "creation": "2025-02-11 10:56:05.747462",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_3li0",
+  "tenant",
+  "tenant_full_name",
+  "house",
+  "house_serial_number",
+  "address",
+  "reference_number",
+  "column_break_ojof",
+  "reason_for_contract",
+  "rent_amount",
+  "issued_date",
+  "start_date",
+  "end_date",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_3li0",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Contract",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Tenant"
+  },
+  {
+   "fieldname": "house",
+   "fieldtype": "Link",
+   "label": "House",
+   "options": "House"
+  },
+  {
+   "fieldname": "reference_number",
+   "fieldtype": "Data",
+   "label": "Reference number"
+  },
+  {
+   "fieldname": "issued_date",
+   "fieldtype": "Date",
+   "label": "Issued date"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End date"
+  },
+  {
+   "fieldname": "reason_for_contract",
+   "fieldtype": "Select",
+   "label": "Reason for contract",
+   "options": "\nPeronal\nOffice"
+  },
+  {
+   "fetch_from": "house.address",
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "tenant.full_name",
+   "fieldname": "tenant_full_name",
+   "fieldtype": "Data",
+   "label": "Tenant full name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "house.serial_number",
+   "fieldname": "house_serial_number",
+   "fieldtype": "Data",
+   "label": "House serial number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ojof",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "house.rent_amount",
+   "fieldname": "rent_amount",
+   "fieldtype": "Float",
+   "label": "Rent amount",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-02-11 11:05:38.112650",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Contract",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

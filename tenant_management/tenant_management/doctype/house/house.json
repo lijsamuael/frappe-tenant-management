@@ -1,0 +1,200 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:HOUSE-{serial_number}",
+ "creation": "2025-02-11 10:18:06.143241",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "serial_number",
+  "house_type",
+  "house_condition",
+  "door_number",
+  "window_type",
+  "water_service",
+  "electric_service",
+  "telephone_service",
+  "number_of_floors",
+  "house_floor_area",
+  "roof_material",
+  "wall_material",
+  "floor_material",
+  "column_break_yclo",
+  "address",
+  "status",
+  "rent_amount",
+  "organization",
+  "accessiblity_for_disables",
+  "owns_boundary",
+  "shares_boundary",
+  "kitchen",
+  "toilet",
+  "bath_room"
+ ],
+ "fields": [
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "house_condition",
+   "fieldtype": "Select",
+   "label": "House condition",
+   "options": "\nVery good\nGood\nNormal\nPoor"
+  },
+  {
+   "fieldname": "house_type",
+   "fieldtype": "Select",
+   "label": "House type",
+   "options": "\nL Shape\nVilla"
+  },
+  {
+   "fieldname": "door_number",
+   "fieldtype": "Float",
+   "label": "Door number"
+  },
+  {
+   "fieldname": "window_type",
+   "fieldtype": "Select",
+   "label": "Window type",
+   "options": "\nGlass\nLamera"
+  },
+  {
+   "default": "0",
+   "fieldname": "toilet",
+   "fieldtype": "Check",
+   "label": "Toilet"
+  },
+  {
+   "default": "0",
+   "fieldname": "kitchen",
+   "fieldtype": "Check",
+   "label": "Kitchen"
+  },
+  {
+   "fieldname": "water_service",
+   "fieldtype": "Select",
+   "label": "Water service",
+   "options": "\nPrivate\nShared"
+  },
+  {
+   "fieldname": "electric_service",
+   "fieldtype": "Select",
+   "label": "Electric Service",
+   "options": "\nPrivate\nShared"
+  },
+  {
+   "fieldname": "telephone_service",
+   "fieldtype": "Select",
+   "label": "Telephone service",
+   "options": "\nPrivate\nShared"
+  },
+  {
+   "default": "0",
+   "fieldname": "owns_boundary",
+   "fieldtype": "Check",
+   "label": "Owns boundary"
+  },
+  {
+   "default": "0",
+   "fieldname": "shares_boundary",
+   "fieldtype": "Check",
+   "label": "Shares boundary"
+  },
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Serial number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "number_of_floors",
+   "fieldtype": "Float",
+   "label": "Number of floors"
+  },
+  {
+   "fieldname": "house_floor_area",
+   "fieldtype": "Float",
+   "label": "House floor area"
+  },
+  {
+   "fieldname": "column_break_yclo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nRented\nOpen for rent"
+  },
+  {
+   "fieldname": "rent_amount",
+   "fieldtype": "Float",
+   "label": "Rent amount"
+  },
+  {
+   "default": "0",
+   "fieldname": "organization",
+   "fieldtype": "Check",
+   "label": "Organization"
+  },
+  {
+   "default": "0",
+   "fieldname": "accessiblity_for_disables",
+   "fieldtype": "Check",
+   "label": "Accessiblity for disables"
+  },
+  {
+   "default": "0",
+   "fieldname": "bath_room",
+   "fieldtype": "Check",
+   "label": "Bath room"
+  },
+  {
+   "fieldname": "roof_material",
+   "fieldtype": "Select",
+   "label": "Roof material",
+   "options": "\nMud\nCement\nGypsum\nCeramic"
+  },
+  {
+   "fieldname": "floor_material",
+   "fieldtype": "Select",
+   "label": "Floor material",
+   "options": "\nMud\nCement\nGypsum\nCeramic"
+  },
+  {
+   "fieldname": "wall_material",
+   "fieldtype": "Select",
+   "label": "Wall material",
+   "options": "\nMud\nCement\nGypsum\nCeramic"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-11 10:40:10.768316",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "House",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
