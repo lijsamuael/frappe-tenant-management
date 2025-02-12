@@ -1,0 +1,139 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "Br.####",
+ "creation": "2025-02-11 16:48:01.953765",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_27ig",
+  "title",
+  "first_name",
+  "last_name",
+  "date_of_birth",
+  "column_break_qogv",
+  "contact_information",
+  "emergency_contact",
+  "status",
+  "id_type",
+  "id_number",
+  "profile_picture",
+  "section_break_28ig",
+  "commission_type",
+  "commission_value",
+  "linked_contracts"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_27ig",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Link",
+   "label": "Title",
+   "options": "Salutation"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last name"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of birth"
+  },
+  {
+   "fieldname": "column_break_qogv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_information",
+   "fieldtype": "Data",
+   "label": "Contact Information"
+  },
+  {
+   "fieldname": "emergency_contact",
+   "fieldtype": "Data",
+   "label": "Emergency Contact"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive"
+  },
+  {
+   "fieldname": "id_type",
+   "fieldtype": "Select",
+   "label": "ID Type",
+   "options": "National\nKebele\nCompany\nPassport"
+  },
+  {
+   "fieldname": "id_number",
+   "fieldtype": "Data",
+   "label": "ID Number"
+  },
+  {
+   "fieldname": "profile_picture",
+   "fieldtype": "Attach Image",
+   "label": "Profile Picture"
+  },
+  {
+   "fieldname": "section_break_28ig",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "commission_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Commission Type ",
+   "options": "Fixed\nPercentage",
+   "reqd": 1
+  },
+  {
+   "fieldname": "commission_value",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Commission Value",
+   "reqd": 1
+  },
+  {
+   "fieldname": "linked_contracts",
+   "fieldtype": "Link",
+   "label": "Linked contracts",
+   "options": "Contract"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-12 11:21:43.150450",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Broker",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -64,7 +64,8 @@
   {
    "fieldname": "status",
    "fieldtype": "Select",
-   "label": "Status"
+   "label": "Status",
+   "options": "Active\nInactive"
   },
   {
    "fieldname": "id_type",
@@ -112,7 +113,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-11 10:53:36.711598",
+ "modified": "2025-02-12 11:39:28.734109",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Tenant",

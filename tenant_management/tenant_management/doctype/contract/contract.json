@@ -10,12 +10,14 @@
   "tenant",
   "tenant_full_name",
   "house",
+  "broker",
   "house_serial_number",
   "address",
   "reference_number",
   "column_break_ojof",
   "reason_for_contract",
   "rent_amount",
+  "commission_amount",
   "issued_date",
   "start_date",
   "end_date",
@@ -106,12 +108,23 @@
    "fieldtype": "Float",
    "label": "Rent amount",
    "read_only": 1
+  },
+  {
+   "fieldname": "broker",
+   "fieldtype": "Link",
+   "label": "Broker",
+   "options": "Broker"
+  },
+  {
+   "fieldname": "commission_amount",
+   "fieldtype": "Currency",
+   "label": "Commission Amount"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-11 11:05:38.112650",
+ "modified": "2025-02-12 12:22:39.184154",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Contract",

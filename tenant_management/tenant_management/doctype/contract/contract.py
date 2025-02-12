@@ -11,5 +11,46 @@ class Contract(Document):
 			self.house_serial_number = self.house.serial_number
 		if not self.rent_amount:
 			self.rent_amount = self.house.rent_amount
-		if not self.address:
-			self.address = self.house.address
+		# if not self.address:
+		# 	self.address = self.house.address
+
+
+import frappe
+
+def calculate_commission(doc, method):
+    if doc.broker:
+        broker = frappe.get_doc("Broker", doc.broker)
+        if broker.commission_type == "Fixed":
+            doc.commission_amount = broker.commission_value
+        elif broker.commission_type == "Percentage":
+            doc.commission_amount = (broker.commission_value / 100) * doc.rent_amount
+
+
+@frappe.whitelist()
+def make_payment(contract_id, amount):
+    contract = frappe.get_doc("Contract", contract_id)
+
+    # Ensure commission_amount is fetched properly
+    commission = contract.commission_amount or 0  # Avoid None values
+    owner_payment = amount - commission  # Ensure proper calculation
+
+    # Debugging: Print values before inserting
+    frappe.logger().info(f"Creating Payment: Amount Paid={amount}, Commission={commission}, Owner Payment={owner_payment}")
+
+    # Create Payment entry
+    payment = frappe.get_doc({
+        "doctype": "Payment",
+        "contract": contract_id,
+        "tenant": contract.tenant,
+        "amount_paid": amount,
+        "commission_paid": commission,
+        "owner_payment": owner_payment  # Ensure correct subtraction
+    })
+    
+    # Save Payment entry
+    payment.insert()
+    frappe.db.commit()
+
+    return payment.name
+def on_save(doc, method):
+    calculate_commission(doc, method)
