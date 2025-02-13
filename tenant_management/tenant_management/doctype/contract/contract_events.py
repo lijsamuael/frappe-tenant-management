@@ -9,12 +9,10 @@ def on_submit(doc, method):
         house.save()
         frappe.db.commit()
 
-    # Calculate broker commission
-    if doc.broker:
+    # Calculate broker commission BEFORE submission
+    if not doc.commission_amount and doc.broker:
         broker = frappe.get_doc("Broker", doc.broker)
         if broker.commission_type == "Fixed":
-            doc.commission_amount = broker.commission_value
+            doc.commission_amount = round(float(broker.commission_value), 2)
         elif broker.commission_type == "Percentage":
-            doc.commission_amount = (broker.commission_value / 100) * doc.rent_amount
-
-        doc.save()
+            doc.commission_amount = round((broker.commission_value / 100) * doc.rent_amount, 2)
