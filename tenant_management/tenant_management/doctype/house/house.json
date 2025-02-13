@@ -59,7 +59,7 @@
    "fieldname": "window_type",
    "fieldtype": "Select",
    "label": "Window type",
-   "options": "\nGlass\nLamera"
+   "options": "\nGlass\nLamera\nNo window"
   },
   {
    "default": "0",
@@ -128,7 +128,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "\nRented\nOpen for rent"
+   "options": "Open for rent\nRented"
   },
   {
    "fieldname": "rent_amount",
@@ -174,7 +174,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-11 10:40:10.768316",
+ "modified": "2025-02-13 09:40:15.719222",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "House",
