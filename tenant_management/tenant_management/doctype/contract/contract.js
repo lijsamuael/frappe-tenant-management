@@ -3,8 +3,17 @@
 
 cur_frm.add_fetch("house", "serial_number", "house_serial_number");
 
-// frappe.ui.form.on("Contract", {
-//     refress: function(frm) {
-//     }
-// });
+
+frappe.ui.form.on('Contract', {
+    start_date: function(frm) {
+        if (frm.doc.start_date) {
+            let startDate = frappe.datetime.str_to_obj(frm.doc.start_date);
+            let endDate = frappe.datetime.add_months(startDate, 1);
+            frm.set_value('end_date', frappe.datetime.obj_to_str(endDate));
+        }
+    }
+});
+
+
+
 
