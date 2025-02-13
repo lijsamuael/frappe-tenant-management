@@ -1,0 +1,94 @@
+{
+ "add_total_row": 1,
+ "columns": [
+  {
+   "fieldname": "Payment Date",
+   "fieldtype": "Date",
+   "label": "Payment Data",
+   "width": 0
+  },
+  {
+   "fieldname": "Tenant",
+   "fieldtype": "Link",
+   "label": "tenant",
+   "options": "Tenant",
+   "width": 0
+  },
+  {
+   "fieldname": "House",
+   "fieldtype": "Link",
+   "label": "house",
+   "options": "House",
+   "width": 0
+  },
+  {
+   "fieldname": "Amount Paid",
+   "fieldtype": "Currency",
+   "label": "amount_paid",
+   "options": "",
+   "width": 0
+  },
+  {
+   "fieldname": "Commission Amount",
+   "fieldtype": "Currency",
+   "label": "commission_amount",
+   "width": 0
+  },
+  {
+   "fieldname": "Outstanding Balance",
+   "fieldtype": "Currency",
+   "label": "outstanding_balance",
+   "width": 0
+  }
+ ],
+ "creation": "2025-02-12 14:43:55.980594",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "mandatory": 0,
+   "options": "Tenant",
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "date_range",
+   "fieldtype": "Date",
+   "label": "Date Range",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "house",
+   "fieldtype": "Link",
+   "label": "House",
+   "mandatory": 0,
+   "options": "House",
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{}",
+ "letterhead": null,
+ "modified": "2025-02-12 15:02:33.087415",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Financial Summary",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "import frappe\n\ndef execute(filters=None):\n    columns = [\n        {\"label\": \"Payment Date\", \"fieldname\": \"payment_date\", \"fieldtype\": \"Date\"},\n        {\"label\": \"Tenant\", \"fieldname\": \"tenant_name\", \"fieldtype\": \"Link\", \"options\": \"Tenant\"},\n        {\"label\": \"House\", \"fieldname\": \"house_name\", \"fieldtype\": \"Link\", \"options\": \"House\"},\n        {\"label\": \"Amount Paid\", \"fieldname\": \"amount_paid\", \"fieldtype\": \"Currency\"},\n        {\"label\": \"Commission\", \"fieldname\": \"commission_amount\", \"fieldtype\": \"Currency\"},\n        {\"label\": \"Outstanding Balance\", \"fieldname\": \"outstanding_balance\", \"fieldtype\": \"Currency\"},\n    ]\n\n    data = frappe.db.sql(\"\"\"\n        SELECT\n            payment.payment_date,\n            tenant.tenant_name,\n            house.house_name,\n            payment.amount_paid,\n            payment.commission_amount,\n            (contract.total_amount - payment.amount_paid) as outstanding_balance\n        FROM `tabPayment` as payment\n        JOIN `tabTenant` as tenant ON payment.tenant = tenant.name\n        JOIN `tabHouse` as house ON payment.house = house.name\n        JOIN `tabContract` as contract ON payment.contract = contract.name\n        ORDER BY payment.payment_date DESC\n    \"\"\", as_dict=True)\n\n    return columns, data\n",
+ "ref_doctype": "Payment",
+ "reference_report": "",
+ "report_name": "Financial Summary",
+ "report_type": "Report Builder",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}
