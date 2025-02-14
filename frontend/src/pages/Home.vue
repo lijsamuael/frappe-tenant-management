@@ -1,7 +1,9 @@
 <template>
-  <div class="max-w-3xl py-12 mx-auto">
+  <div class="w-full bg-[#cce0f5] h-screen  mx-auto">
 
-    <Breadcrumbs
+
+    <div class="px-16 py-8">
+      <Breadcrumbs
   :items="[
     {
       label: 'Tenant Management',
@@ -25,6 +27,7 @@
  <br />
     <!-- House List Grouped by Status -->
     <ListView
+    class="bg-[#99bfe6] hover:bg-[#80aee0] rounded-md"
       :columns="[
         { label: 'House number', key: 'name' },
         { label: 'Status', key: 'status' },
@@ -44,6 +47,7 @@
 
     <!-- Contract List -->
     <ListView
+    class="bg-[#80aee0] rounded-md"
       :columns="[
         { label: 'Contract Id', key: 'name' },
         { label: 'Broker', key: 'broker' },
@@ -59,6 +63,7 @@
     }"
       row-key="name"
     />
+    </div>
   </div>
 </template>
 
