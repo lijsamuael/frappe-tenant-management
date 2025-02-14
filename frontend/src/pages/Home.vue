@@ -1,5 +1,28 @@
 <template>
   <div class="max-w-3xl py-12 mx-auto">
+
+    <Breadcrumbs
+  :items="[
+    {
+      label: 'Tenant Management',
+      icon: '🏡',
+      route: {
+        name: 'Home',
+      },
+    },
+    {
+      label: 'House & Contracts',
+      icon: '🏞️',
+      route: '/components',
+    },
+    {
+      label: 'List',
+      icon: '📃',
+      route: '/components/breadcrumbs',
+    },
+  ]"
+ />
+ <br />
     <!-- House List Grouped by Status -->
     <ListView
       :columns="[
@@ -41,7 +64,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { createListResource, ListView } from 'frappe-ui'
+import { createListResource, ListView, Breadcrumbs } from 'frappe-ui'
 
 const doctypes = createListResource({
   doctype: 'House',
