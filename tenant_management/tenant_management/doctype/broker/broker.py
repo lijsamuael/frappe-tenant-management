@@ -9,8 +9,8 @@ class Broker(Document):
 	pass
 
 
-# @frappe.whitelist()
-# def make_contract(source_name, target_doc=None):
-# 	contract = frappe.new_doc("Contract")
-# 	contract.broker = source_name
-# 	return contract
+@frappe.whitelist()
+def make_contract(source_name, target_doc=None):
+	contract = frappe.new_doc("Contract")
+	contract.broker = source_name
+	return contract

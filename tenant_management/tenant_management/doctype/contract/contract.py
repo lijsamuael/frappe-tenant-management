@@ -21,10 +21,17 @@ def calculate_commission(doc, method):
     if doc.broker:
         broker = frappe.get_doc("Broker", doc.broker)
         if broker.commission_type == "Fixed":
-            doc.commission_amount = broker.commission_value
+            commission_value = broker.commission_value
         elif broker.commission_type == "Percentage":
-            doc.commission_amount = (broker.commission_value / 100) * doc.rent_amount
+            commission_value = (broker.commission_value / 100) * doc.rent_amount
+        else:
+            commission_value = 0  # Default to 0 if no valid commission type
 
+        # Ensure commission value is set before submission
+        frappe.logger().info(f"Setting Commission for Contract {doc.name}: {commission_value}")
+
+        # Use db_set to avoid validation errors after submission
+        doc.db_set("commission_amount", round(commission_value, 2))
 
 @frappe.whitelist()
 def make_payment(contract_id, amount):

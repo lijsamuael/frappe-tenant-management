@@ -42,7 +42,8 @@
    "fetch_from": "contracts.rent_amount",
    "fieldname": "amount_paid",
    "fieldtype": "Currency",
-   "label": "Amount Paid"
+   "label": "Amount Paid",
+   "read_only": 1
   },
   {
    "fieldname": "owner_payment",
@@ -58,7 +59,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-12 21:58:12.720608",
+ "modified": "2025-02-14 08:44:04.237678",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Payment",

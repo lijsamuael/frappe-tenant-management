@@ -9,10 +9,17 @@ def on_submit(doc, method):
         house.save()
         frappe.db.commit()
 
-    # Calculate broker commission BEFORE submission
+    # Ensure commission is only set if it's currently 0
     if not doc.commission_amount and doc.broker:
         broker = frappe.get_doc("Broker", doc.broker)
         if broker.commission_type == "Fixed":
-            doc.commission_amount = round(float(broker.commission_value), 2)
+            commission_value = broker.commission_value
         elif broker.commission_type == "Percentage":
-            doc.commission_amount = round((broker.commission_value / 100) * doc.rent_amount, 2)
+            commission_value = (broker.commission_value / 100) * doc.rent_amount
+        else:
+            commission_value = 0  # Default if no valid type
+
+        frappe.logger().info(f"Final Commission Set on Submit: {commission_value}")
+
+        # Directly update the field in the database
+        doc.db_set("commission_amount", round(commission_value, 2))
