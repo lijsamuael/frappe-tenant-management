@@ -11,29 +11,29 @@ app_license = "mit"
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "tenant_management",
-# 		"logo": "/assets/tenant_management/logo.png",
-# 		"title": "Tenant Management",
-# 		"route": "/tenant_management",
-# 		"has_permission": "tenant_management.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "tenant_management",
+		"logo": "/assets/tenant_management/logo.png",
+		"title": "Tenant Management",
+		"route": "/tenant_management",
+		# "has_permission": "tenant_management.check_app_permission"
+	}
+]
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/tenant_management/css/tenant_management.css"
-# app_include_js = "/assets/tenant_management/js/tenant_management.js"
+app_include_css = "/assets/tenant_management/css/tenant_management.css"
+app_include_js = "/assets/tenant_management/js/tenant_management.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/tenant_management/css/tenant_management.css"
-# web_include_js = "/assets/tenant_management/js/tenant_management.js"
+web_include_css = "/assets/tenant_management/css/tenant_management.css"
+web_include_js = "/assets/tenant_management/js/tenant_management.js"
 
 # include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "tenant_management/public/scss/website"
+website_theme_scss = "tenant_management/public/scss/website"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
@@ -244,3 +244,5 @@ app_license = "mit"
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
+
+website_route_rules = [{'from_route': '/frontend/<path:app_path>', 'to_route': 'frontend'},]

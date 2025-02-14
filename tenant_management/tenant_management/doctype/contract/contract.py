@@ -3,6 +3,8 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe.website.website_generator import WebsiteGenerator
+
 
 
 class Contract(Document):
@@ -18,6 +20,11 @@ class Contract(Document):
         frappe.db.set_value("House", self.house, "status", "Rented")
 
 
+
+class ContractPage(WebsiteGenerator):
+    def before_save(self):
+        self.route = "tenant-management"
+    
 
 
 def calculate_commission(doc, method):
