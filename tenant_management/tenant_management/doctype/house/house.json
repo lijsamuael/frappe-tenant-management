@@ -125,6 +125,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "Open for rent",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
@@ -174,7 +175,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-11 10:40:10.768316",
+ "modified": "2025-02-13 23:26:33.790686",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "House",

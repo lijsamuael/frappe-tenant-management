@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "TER-.####",
+ "creation": "2025-02-13 15:55:04.939138",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "house",
+  "contract",
+  "termination_reason",
+  "termination_date"
+ ],
+ "fields": [
+  {
+   "fetch_from": "contract.house",
+   "fieldname": "house",
+   "fieldtype": "Link",
+   "label": "House",
+   "options": "House"
+  },
+  {
+   "fetch_from": "house.serial_number",
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "Contract",
+   "options": "Contract"
+  },
+  {
+   "fieldname": "termination_date",
+   "fieldtype": "Date",
+   "label": "Termination Date"
+  },
+  {
+   "fieldname": "termination_reason",
+   "fieldtype": "Small Text",
+   "label": "Termination Reason"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-14 00:41:43.767887",
+ "modified_by": "Administrator",
+ "module": "Tenant Management",
+ "name": "Terminate Contract",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
