@@ -58,15 +58,20 @@
 
 		<!-- House Creation Modal -->
 		<Dialog
-    :options="{
-    size: '3xl'
-    }"
-     v-model="dialogHouse">
+			:options="{
+				size: '3xl',
+				icon: {
+					name: 'save',
+					appearance: 'success',
+				},
+			}"
+			v-model="dialogHouse"
+		>
 			<template #body-title>
 				<h3>Create House</h3>
 			</template>
 			<template #body-content>
-				<div class="flex gap-8 w-full">
+				<div class="flex flex-col sm:flex-row gap-8 w-full">
 					<div class="flex flex-col gap-2 w-full">
 						<FormControl
 							v-model="houseData.serial_number"
@@ -75,12 +80,42 @@
 						/>
 						<FormControl
 							v-model="houseData.house_type"
-							type="select"
+							type="autocomplete"
+							:options="[
+								{
+									label: 'L Shape',
+									value: 'L Shape',
+								},
+								{
+									label: 'Villa',
+									value: 'Villa',
+								},
+							]"
+							size="sm"
+							variant="subtle"
+							:disabled="false"
 							label="House Type"
 						/>
 						<FormControl
 							v-model="houseData.house_condition"
-							type="select"
+							type="autocomplete"
+							:options="[
+								{
+									label: 'Very good',
+									value: 'Very good',
+								},
+								{
+									label: 'Good',
+									value: 'Good',
+								},
+								{
+									label: 'Normal',
+									value: 'Normal',
+								},
+							]"
+							size="sm"
+							variant="subtle"
+							:disabled="false"
 							label="House Condition"
 						/>
 						<FormControl
@@ -90,22 +125,78 @@
 						/>
 						<FormControl
 							v-model="houseData.window_type"
-							type="select"
+							type="autocomplete"
+							:options="[
+								{
+									label: 'Glass',
+									value: 'Glass',
+								},
+								{
+									label: 'Lamera',
+									value: 'Lamera',
+								},
+								{
+									label: 'No window',
+									value: 'No window',
+								},
+							]"
+							size="sm"
+							variant="subtle"
+							:disabled="false"
 							label="Window Type"
 						/>
 						<FormControl
 							v-model="houseData.water_service"
-							type="select"
+							type="autocomplete"
+							:options="[
+								{
+									label: 'Private',
+									value: 'Private',
+								},
+								{
+									label: 'Public',
+									value: 'Public',
+								},
+							]"
+							size="sm"
+							variant="subtle"
+							:disabled="false"
 							label="Water Service"
 						/>
 						<FormControl
 							v-model="houseData.electric_service"
-							type="select"
+							type="autocomplete"
+							:options="[
+								{
+									label: 'Private',
+									value: 'Private',
+								},
+								{
+									label: 'Public',
+									value: 'Public',
+								},
+							]"
+							size="sm"
+							variant="subtle"
+							:disabled="false"
 							label="Electric Service"
 						/>
 						<FormControl
 							v-model="houseData.telephone_service"
-							type="select"
+							type="autocomplete"
+							:options="[
+								{
+									label: 'Private',
+									value: 'Private',
+								},
+								{
+									label: 'Public',
+									value: 'Public',
+								},
+							]"
+							size="sm"
+							variant="subtle"
+							:disabled="false"
 							label="Telephone Service"
 						/>
 						<FormControl
@@ -122,57 +213,154 @@
 					<div class="flex flex-col gap-2 w-full">
 						<FormControl
 							v-model="houseData.roof_material"
-							type="select"
+							type="autocomplete"
+							:options="[
+								{
+									label: 'Mud',
+									value: 'Mud',
+								},
+								{
+									label: 'Cement',
+									value: 'Cement',
+								},
+								{
+									label: 'Gypsum',
+									value: 'Gypsum',
+								},
+								{
+									label: 'Ceramic',
+									value: 'Ceramic',
+								},
+							]"
+							size="sm"
+							variant="subtle"
+							:disabled="false"
 							label="Roof Material"
 						/>
 						<FormControl
 							v-model="houseData.wall_material"
-							type="select"
+							type="autocomplete"
+							:options="[
+								{
+									label: 'Mud',
+									value: 'Mud',
+								},
+								{
+									label: 'Cement',
+									value: 'Cement',
+								},
+								{
+									label: 'Gypsum',
+									value: 'Gypsum',
+								},
+								{
+									label: 'Ceramic',
+									value: 'Ceramic',
+								},
+							]"
+							size="sm"
+							variant="subtle"
+							:disabled="false"
 							label="Wall Material"
 						/>
 						<FormControl
 							v-model="houseData.floor_material"
-							type="select"
+							type="autocomplete"
+							:options="[
+								{
+									label: 'Mud',
+									value: 'Mud',
+								},
+								{
+									label: 'Cement',
+									value: 'Cement',
+								},
+								{
+									label: 'Gypsum',
+									value: 'Gypsum',
+								},
+								{
+									label: 'Ceramic',
+									value: 'Ceramic',
+								},
+							]"
+							size="sm"
+							variant="subtle"
+							:disabled="false"
 							label="Floor Material"
 						/>
 						<FormControl v-model="houseData.address" type="link" label="Address" />
-						<FormControl v-model="houseData.status" type="select" label="Status" />
+						<FormControl
+							v-model="houseData.status"
+							type="select"
+							:options="[
+								{
+									label: 'Open for rent',
+									value: 'Open for rent',
+								},
+								{
+									label: 'Rented',
+									value: 'Rented',
+								},
+							]"
+							label="Status"
+						/>
 						<FormControl
 							v-model="houseData.rent_amount"
 							type="number"
 							label="Rent Amount"
 						/>
 						<FormControl
+							class=""
+							size="lg"
 							v-model="houseData.organization"
-							type="select"
+							type="checkbox"
 							label="Organization"
 						/>
 						<FormControl
+							size="lg"
 							v-model="houseData.accessibility_for_disables"
 							type="checkbox"
 							label="Accessibility for Disabled"
 						/>
 						<FormControl
+							size="lg"
 							v-model="houseData.owns_boundary"
 							type="checkbox"
 							label="Owns Boundary"
 						/>
 						<FormControl
+							size="lg"
 							v-model="houseData.shares_boundary"
 							type="checkbox"
 							label="Shares Boundary"
 						/>
-						<FormControl v-model="houseData.kitchen" type="checkbox" label="Kitchen" />
-						<FormControl v-model="houseData.toilet" type="checkbox" label="Toilet" />
 						<FormControl
+							size="lg"
+							v-model="houseData.kitchen"
+							type="checkbox"
+							label="Kitchen"
+						/>
+						<FormControl
+							size="lg"
+							v-model="houseData.toilet"
+							type="checkbox"
+							label="Toilet"
+						/>
+						<FormControl
+							size="lg"
 							v-model="houseData.bathroom"
 							type="checkbox"
 							label="Bathroom"
 						/>
 					</div>
 				</div>
+
 			</template>
-			<template #actions>
+      <template #error>
+        <ErrorMessage :message="houses.insert.error" />
+        </template>
+      <template #actions>
 				<Button
 					class="w-full bg-blue-300 text-black font-bold"
 					@click="createHouse"
@@ -214,16 +402,43 @@
 
 <script setup>
 import { computed, reactive, ref } from 'vue'
-import { createListResource, ListView, Breadcrumbs, Dialog, Button, FormControl } from 'frappe-ui'
+import { createListResource, ListView, Breadcrumbs, Dialog, Button, FormControl, ErrorMessage } from 'frappe-ui'
 
 const dialogHouse = ref(false)
 const dialogContract = ref(false)
+const showSuccessMessage = ref(false)
 
 const contractData = ref({ name: '', broker: '', house_serial_number: '' })
 
 const createHouse = () => {
-	console.log('House Created:', houseData.value)
-	dialogHouse.value = false
+	console.log('Creating house.....', houseData)
+  houses.insert.submit({
+    ...houseData,
+    house_type: houseData.house_type.value,
+    house_condition: houseData.house_condition.value,
+    window_type: houseData.window_type.value,
+    water_service: houseData.water_service.value,
+    electric_service: houseData.electric_service.value,
+    telephone_service: houseData.telephone_service.value,
+    roof_material: houseData.roof_material.value,
+    wall_material: houseData.wall_material.value,
+    floor_material: houseData.floor_material.value,
+    organization: houseData.organization.value,
+    accessibility_for_disables: houseData.accessibility_for_disables.value,
+  }).then(() => {
+    clearHouseData()
+    dialogHouse.value = false
+    showSuccessMessage.value = true
+    setTimeout(() => {
+      showSuccessMessage.value = false
+    }, 3000)
+  })
+}
+
+const clearHouseData = () => {
+  Object.keys(houseData).forEach(key => {
+    houseData[key] = ''
+  })
 }
 
 const createContract = () => {
@@ -231,7 +446,7 @@ const createContract = () => {
 	dialogContract.value = false
 }
 
-const doctypes = createListResource({
+const houses = createListResource({
 	doctype: 'House',
 	fields: ['*'],
 	auto: true,
@@ -245,11 +460,6 @@ const contracts = createListResource({
 	orderBy: 'name desc',
 })
 
-const newHouser = reactive({
-	name: '',
-	status: '',
-	rent_amount: '',
-})
 
 const houseData = reactive({
 	serial_number: '',
@@ -278,9 +488,9 @@ const houseData = reactive({
 })
 
 const groupedHouses = computed(() => {
-	if (!doctypes.list.data) return []
-	const rented = doctypes.list.data.filter((h) => h.status === 'Rented')
-	const openForRent = doctypes.list.data.filter((h) => h.status === 'Open for rent')
+	if (!houses.list.data) return []
+	const rented = houses.list.data.filter((h) => h.status === 'Rented')
+	const openForRent = houses.list.data.filter((h) => h.status === 'Open for rent')
 	return [
 		{ group: 'Rented', collapsed: false, rows: rented },
 		{ group: 'Open for rent', collapsed: false, rows: openForRent },
