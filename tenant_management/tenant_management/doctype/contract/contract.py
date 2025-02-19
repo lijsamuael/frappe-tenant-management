@@ -2,21 +2,30 @@
 # For license information, please see license.txt
 
 import frappe
+import frappe
 from frappe.model.document import Document
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 class Contract(Document):
-	def validate(self):
-		if not self.house_serial_number:
-			self.house_serial_number = self.house.serial_number
-		if not self.rent_amount:
-			self.rent_amount = self.house.rent_amount
-		# if not self.address:
-		# 	self.address = self.house.address
+    def validate(self):
+        if not self.house_serial_number:
+            self.house_serial_number = self.house.serial_number
+        if not self.rent_amount:
+            self.rent_amount = self.house.rent_amount
+        # if not self.address:
+        #     self.address = self.house.address
+
+    def on_submit(self):
+        frappe.db.set_value("House", self.house, "status", "Rented")
 
 
-import frappe
+
+class ContractPage(WebsiteGenerator):
+    def before_save(self):
+        self.route = "tenant-management"
+    
+
 
 def calculate_commission(doc, method):
     if doc.broker:
