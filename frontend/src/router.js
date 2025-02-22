@@ -1,15 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { session } from './data/session'
 import { userResource } from '@/data/user'
-
+import  HOmepage from './views/Home.vue'
+import Services from './views/Services.vue'
+import Contact from './views/Contact.vue'
+import Login from './pages/Login.vue'
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'House',
     component: () => import('@/pages/Home.vue'),
   },
+//   {
+// path:'/login',
+// name:'Login',
+// component:Login
+//   },
+  { path: '/', component: HOmepage },
+  { path: '/services', component: Services },
+  { path: '/contact', component: Contact },
   {
-    name: 'Login',
     path: '/account/login',
     component: () => import('@/pages/Login.vue'),
   },

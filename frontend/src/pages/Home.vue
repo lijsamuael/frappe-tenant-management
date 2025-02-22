@@ -1,5 +1,6 @@
 <template>
 	<div class="w-full bg-[#cce0f5] h-screen">
+		<Navbar/>
 		<div class="px-16 py-8">
 			<Breadcrumbs
 				:items="[
@@ -397,16 +398,20 @@
 				/>
 			</template>
 		</Dialog>
+		<Footer/>
 	</div>
+	
 </template>
 
 <script setup>
 import { computed, reactive, ref } from 'vue'
 import { createListResource, ListView, Breadcrumbs, Dialog, Button, FormControl, ErrorMessage } from 'frappe-ui'
-
+import Navbar from '../components/Navbar.vue'
+import Footer from '../components/Footer.vue'
 const dialogHouse = ref(false)
 const dialogContract = ref(false)
 const showSuccessMessage = ref(false)
+
 
 const contractData = ref({ name: '', broker: '', house_serial_number: '' })
 

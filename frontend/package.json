@@ -9,6 +9,7 @@
     "copy-html-entry": "cp ../tenant_management/public/frontend/index.html ../tenant_management/www/frontend.html"
   },
   "dependencies": {
+    "@internationalized/date": "^3.7.0",
     "feather-icons": "^4.29.2",
     "frappe-ui": "^0.1.72",
     "vue": "^3.5.12",
