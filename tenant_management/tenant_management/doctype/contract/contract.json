@@ -6,7 +6,6 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_3li0",
   "tenant",
   "tenant_full_name",
   "house",
@@ -25,10 +24,6 @@
  ],
  "fields": [
   {
-   "fieldname": "section_break_3li0",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -41,7 +36,7 @@
   {
    "fieldname": "tenant",
    "fieldtype": "Link",
-   "label": "Tenant",
+   "label": "Tenantttt",
    "options": "Tenant"
   },
   {
@@ -124,7 +119,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-12 21:56:35.704400",
+ "modified": "2025-03-26 12:57:55.840964",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Contract",
